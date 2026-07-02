@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>课程安排需求收集</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #e8ecf1 0%, #d5dce6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 30px 16px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+            padding: 32px 28px;
+            max-width: 620px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+        .sub {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+        .field { margin-bottom: 16px; }
+        .field label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 4px;
+        }
+        .field label .red { color: #ef4444; }
+        .field input, .field select, .field textarea {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+            font-family: inherit;
+            background: #fff;
+        }
+        .field input:focus, .field select:focus, .field textarea:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+            outline: none;
+        }
+        .field textarea { resize: vertical; min-height: 60px; }
+        .row { display: flex; gap: 12px; }
+        .row .field { flex: 1; }
+        .ck-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            margin-top: 4px;
+        }
+        .ck-group label {
+            font-weight: 400;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .ck-group input { width: auto; accent-color: #3b82f6; }
+        .btn {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            transition: 0.2s;
+            margin-top: 4px;
+        }
+        .btn:hover { background: #1d4ed8; }
+        .btn:disabled { background: #93c5fd; cursor: not-allowed; }
+        .msg {
+            text-align: center;
+            margin-top: 14px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        .msg.ok { display: block; background: #dcfce7; color: #166534; }
+        .msg.err { display: block; background: #fee2e2; color: #991b1b; }
+        .foot { text-align: center; margin-top: 18px; font-size: 12px; color: #aaa; }
+        @media (max-width: 480px) {
+            .card { padding: 20px 16px; }
+            .row { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>📋 课程安排需求收集</h1>
+    <p class="sub">请如实填写，教务处将根据需求统筹安排</p>
+
+    <form action="https://formsubmit.co/1378308831@qq.com" method="POST">
+        <!-- 防垃圾 -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_subject" value="新课程需求提交">
+
+        <div class="row">
+            <div class="field">
+                <label>姓名 <span class="red">*</span></label>
+                <input type="text" name="姓名" required placeholder="请输入姓名">
+            </div>
+            <div class="field">
+                <label>科目 <span class="red">*</span></label>
+                <select name="科目" required>
+                    <option value="">请选择</option>
+                    <option>语文</option><option>数学</option><option>英语</option>
+                    <option>物理</option><option>化学</option><option>生物</option>
+                    <option>历史</option><option>政治</option><option>地理</option>
+                    <option>信息</option><option>体育</option><option>其他</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>任教班级 <span class="red">*</span></label>
+            <input type="text" name="任教班级" required placeholder="如：2401、2402、2403">
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>每周课时 <span class="red">*</span></label>
+                <input type="number" name="每周课时" required min="1" max="30" placeholder="例：5">
+            </div>
+            <div class="field">
+                <label>办公室</label>
+                <select name="办公室">
+                    <option value="">请选择</option>
+                    <option>一楼办公室</option><option>二楼办公室</option>
+                    <option>三楼办公室</option><option>四楼办公室</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>希望不排课的时间段</label>
+            <div class="ck-group">
+                <label><input type="checkbox" name="不排课时段" value="周一上午"> 周一上午</label>
+                <label><input type="checkbox" name="不排课时段" value="周一下午"> 周一下午</label>
+                <label><input type="checkbox" name="不排课时段" value="周二上午"> 周二上午</label>
+                <label><input type="checkbox" name="不排课时段" value="周二下午"> 周二下午</label>
+                <label><input type="checkbox" name="不排课时段" value="周三上午"> 周三上午</label>
+                <label><input type="checkbox" name="不排课时段" value="周三下午"> 周三下午</label>
+                <label><input type="checkbox" name="不排课时段" value="周四上午"> 周四上午</label>
+                <label><input type="checkbox" name="不排课时段" value="周四下午"> 周四下午</label>
+                <label><input type="checkbox" name="不排课时段" value="周五上午"> 周五上午</label>
+                <label><input type="checkbox" name="不排课时段" value="周五下午"> 周五下午</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>课程冲突说明（如需与其他老师错开）</label>
+            <textarea name="冲突说明" placeholder="如：我与XX老师需要在不同时段上课，请错开安排…"></textarea>
+        </div>
+
+        <div class="field">
+            <label>其他需求或备注</label>
+            <textarea name="其他需求" placeholder="其他需要说明的情况…"></textarea>
+        </div>
+
+        <button type="submit" class="btn" id="btn">提交需求</button>
+    </form>
+    <div id="msg" class="msg"></div>
+    <div class="foot">提交后数据将发送至教务处邮箱</div>
+</div>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    var btn = document.getElementById('btn');
+    var msg = document.getElementById('msg');
+    btn.disabled = true;
+    btn.textContent = '提交中…';
+    msg.className = 'msg';
+    setTimeout(function() {
+        msg.className = 'msg ok';
+        msg.textContent = '✅ 提交成功！感谢您的填写。';
+        btn.disabled = false;
+        btn.textContent = '提交需求';
+    }, 2000);
+});
+</script>
+</body>
+</html>
