@@ -150,6 +150,7 @@
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="">
         <input type="hidden" name="_subject" value="新课程需求提交">
+        <input type="hidden" name="不排课时间汇总" id="hiddenTimes" value="">
 
         <div class="row">
             <div class="field">
@@ -252,8 +253,14 @@
 
 <script>
 document.querySelector('form').addEventListener('submit', function(e) {
-    // 检查是否至少选了一节不能上的课
+    // 把所有选中的不排课时间合并成一个字符串
     var checked = document.querySelectorAll('input[name="不排课时间"]:checked');
+    var times = [];
+    for (var i = 0; i < checked.length; i++) {
+        times.push(checked[i].value);
+    }
+    document.getElementById('hiddenTimes').value = times.join('、');
+    
     var btn = document.getElementById('btn');
     var msg = document.getElementById('msg');
     btn.disabled = true;
