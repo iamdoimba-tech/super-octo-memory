@@ -194,11 +194,11 @@
             html += '<span class="period-grid">';
             // 上午第1~5节
             for (var p = 1; p <= 5; p++) {
-                html += '<label><input type="checkbox" name="不排课时间" value="' + days[d] + '第' + p + '节(午)">' + p + '</label>';
+                html += '<label><input type="checkbox" class="period-cb" value="' + days[d] + '第' + p + '节(午)">' + p + '</label>';
             }
             // 下午第6~9节
             for (var p = 6; p <= 9; p++) {
-                html += '<label><input type="checkbox" name="不排课时间" value="' + days[d] + '第' + p + '节">' + p + '</label>';
+                html += '<label><input type="checkbox" class="period-cb" value="' + days[d] + '第' + p + '节">' + p + '</label>';
             }
             html += '</span></div>';
         }
@@ -254,18 +254,12 @@
 <script>
 document.querySelector('form').addEventListener('submit', function(e) {
     // 把所有选中的不排课时间合并成一个字符串
-    var checked = document.querySelectorAll('input[name="不排课时间"]:checked');
+    var checked = document.querySelectorAll('.period-cb:checked');
     var times = [];
     for (var i = 0; i < checked.length; i++) {
         times.push(checked[i].value);
     }
     document.getElementById('hiddenTimes').value = times.join('、');
-    
-    // 移除所有复选框的name，只提交隐藏字段
-    var allCb = document.querySelectorAll('input[name="不排课时间"]');
-    for (var i = 0; i < allCb.length; i++) {
-        allCb[i].removeAttribute('name');
-    }
     
     var btn = document.getElementById('btn');
     var msg = document.getElementById('msg');
