@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>课程需求收集</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, "Microsoft YaHei", sans-serif;
+            background: #f1f4f8;
+            min-height: 100vh;
+            padding: 24px 16px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            padding: 28px 24px;
+            max-width: 720px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            font-size: 20px;
+            color: #1e293b;
+        }
+        .sub {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .field { margin-bottom: 14px; }
+        .field label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 4px;
+        }
+        .field label .red { color: #ef4444; }
+        .field input, .field select, .field textarea {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+            font-family: inherit;
+            background: #fff;
+        }
+        .field input:focus, .field select:focus, .field textarea:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+            outline: none;
+        }
+        .field textarea { resize: vertical; min-height: 54px; }
+        .row { display: flex; gap: 10px; }
+        .row .field { flex: 1; }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 16px 0 8px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .day-group {
+            margin-bottom: 8px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 8px 10px;
+        }
+        .day-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            width: 52px;
+            display: inline-block;
+        }
+        .period-grid {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .period-grid label {
+            font-weight: 400;
+            font-size: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 2px 6px;
+            transition: 0.15s;
+        }
+        .period-grid label:has(input:checked) {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            color: #1d4ed8;
+        }
+        .period-grid input { display: none; }
+        
+        .btn {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #2563eb;
+            color: #fff;
+            transition: 0.2s;
+            margin-top: 6px;
+        }
+        .btn:hover { background: #1d4ed8; }
+        .btn:disabled { background: #93c5fd; cursor: not-allowed; }
+        .msg {
+            text-align: center;
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        .msg.ok { display: block; background: #dcfce7; color: #166534; }
+        .msg.err { display: block; background: #fee2e2; color: #991b1b; }
+        .foot { text-align: center; margin-top: 16px; font-size: 12px; color: #aaa; }
+        @media (max-width: 580px) {
+            .card { padding: 20px 14px; }
+            .row { flex-direction: column; gap: 0; }
+            .period-grid label { font-size: 11px; padding: 2px 4px; }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>📋 课程安排需求收集</h1>
+    <p class="sub">请勾选您<b>不想上课</b>的节次，教务处将统筹安排</p>
+
+    <form action="https://formsubmit.co/1378308831@qq.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_subject" value="新课程需求提交">
+
+        <div class="row">
+            <div class="field">
+                <label>姓名 <span class="red">*</span></label>
+                <input type="text" name="姓名" required placeholder="请输入姓名">
+            </div>
+            <div class="field">
+                <label>科目 <span class="red">*</span></label>
+                <select name="科目" required>
+                    <option value="">请选择</option>
+                    <option>语文</option><option>数学</option><option>英语</option>
+                    <option>物理</option><option>化学</option><option>生物</option>
+                    <option>历史</option><option>政治</option><option>地理</option>
+                    <option>信息</option><option>体育</option><option>其他</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>任教班级 <span class="red">*</span></label>
+            <input type="text" name="任教班级" required placeholder="如：2401、2402、2403">
+        </div>
+
+        <div class="field">
+            <label>办公室</label>
+            <select name="办公室">
+                <option value="">请选择</option>
+                <option>一楼办公室</option><option>二楼办公室</option>
+                <option>三楼办公室</option><option>四楼办公室</option>
+            </select>
+        </div>
+
+        <div class="section-title">🗓️ 请勾选您不能上课的节次</div>
+
+        <script>
+        var days = ["周一","周二","周三","周四","周五","周六","周日"];
+        var html = "";
+        for (var d = 0; d < days.length; d++) {
+            html += '<div class="day-group">';
+            html += '<span class="day-label">' + days[d] + '</span>';
+            html += '<span class="period-grid">';
+            // 上午第1~5节
+            for (var p = 1; p <= 5; p++) {
+                html += '<label><input type="checkbox" name="不排课时间" value="' + days[d] + '第' + p + '节(午)">' + p + '</label>';
+            }
+            // 下午第6~9节
+            for (var p = 6; p <= 9; p++) {
+                html += '<label><input type="checkbox" name="不排课时间" value="' + days[d] + '第' + p + '节">' + p + '</label>';
+            }
+            html += '</span></div>';
+        }
+        document.write(html);
+        </script>
+
+        <div style="font-size:12px;color:#94a3b8;margin:4px 0 10px;">上午：第1~5节 &nbsp;|&nbsp; 下午：第6~9节 &nbsp;|&nbsp; 勾选=不想上课</div>
+
+        <div class="section-title">📌 上课偏好设置</div>
+
+        <div class="field" style="margin-bottom:10px;">
+            <label>能否接受5、6节连堂（上午第5节与下午第6节连续上课）？</label>
+            <div style="display:flex;gap:12px;margin-top:4px;">
+                <label style="font-weight:400;font-size:14px;cursor:pointer;"><input type="radio" name="接受56连堂" value="能接受" style="width:auto;"> 能接受</label>
+                <label style="font-weight:400;font-size:14px;cursor:pointer;"><input type="radio" name="接受56连堂" value="不能接受" style="width:auto;"> 不能接受</label>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom:10px;">
+            <label>是否希望课程尽可能连着上（减少空堂）？</label>
+            <div style="display:flex;gap:12px;margin-top:4px;">
+                <label style="font-weight:400;font-size:14px;cursor:pointer;"><input type="radio" name="希望连上" value="希望连着上" style="width:auto;"> 希望连着上</label>
+                <label style="font-weight:400;font-size:14px;cursor:pointer;"><input type="radio" name="希望连上" value="无所谓" style="width:auto;"> 无所谓</label>
+                <label style="font-weight:400;font-size:14px;cursor:pointer;"><input type="radio" name="希望连上" value="不希望连着上" style="width:auto;"> 不希望连着上</label>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom:10px;">
+            <label>如能接受连着上，最多可接受连续几节课？</label>
+            <select name="最多连堂">
+                <option value="">请选择</option>
+                <option>2节</option><option>3节</option><option>4节</option>
+                <option>5节</option><option>6节</option><option>不限</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>课程冲突说明（如需与其他老师错开）</label>
+            <textarea name="冲突说明" placeholder="如：我与XX老师需要在不同时段上课，请错开安排…"></textarea>
+        </div>
+
+        <div class="field">
+            <label>其他需求或备注</label>
+            <textarea name="其他需求" placeholder="其他需要说明的情况…"></textarea>
+        </div>
+
+        <button type="submit" class="btn" id="btn">提交需求</button>
+    </form>
+    <div id="msg" class="msg"></div>
+    <div class="foot">提交后数据将发送至教务处邮箱</div>
+</div>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    // 检查是否至少选了一节不能上的课
+    var checked = document.querySelectorAll('input[name="不排课时间"]:checked');
+    var btn = document.getElementById('btn');
+    var msg = document.getElementById('msg');
+    btn.disabled = true;
+    btn.textContent = '提交中…';
+    msg.className = 'msg';
+    setTimeout(function() {
+        msg.className = 'msg ok';
+        msg.textContent = '✅ 提交成功！感谢您的填写。';
+        btn.disabled = false;
+        btn.textContent = '提交需求';
+    }, 2000);
+});
+</script>
+</body>
+</html>
